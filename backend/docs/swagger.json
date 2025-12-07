@@ -1,0 +1,139 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "AI-Driven Creative Compliance Engine implementing Tesco Guidelines.",
+        "title": "Retail Media Compliance API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "paths": {
+        "/api/validate": {
+            "post": {
+                "description": "Checks creative elements against Appendix B rules (Text, Alcohol, Safe Zones)",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "compliance"
+                ],
+                "summary": "Validate Creative Compliance",
+                "parameters": [
+                    {
+                        "description": "Creative JSON Data",
+                        "name": "creative",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.CreativeRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ValidationResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request payload",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/health": {
+            "get": {
+                "description": "Verifies that the API server is running",
+                "tags": [
+                    "system"
+                ],
+                "summary": "Backend Health Check",
+                "responses": {
+                    "200": {
+                        "description": "Backend is running",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.CreativeRequest": {
+            "type": "object",
+            "properties": {
+                "category": {
+                    "description": "\"Alcohol\", \"Standard\"",
+                    "type": "string"
+                },
+                "elements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.Element"
+                    }
+                },
+                "format": {
+                    "description": "\"Story_9x16\" or \"Banner_Standard\"",
+                    "type": "string"
+                }
+            }
+        },
+        "models.Element": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "description": "Actual text or image URL",
+                    "type": "string"
+                },
+                "height": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "type": {
+                    "description": "\"Logo\", \"Text\", \"Packshot\", \"Drinkaware\"",
+                    "type": "string"
+                },
+                "width": {
+                    "type": "integer"
+                },
+                "x": {
+                    "type": "integer"
+                },
+                "y": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.ValidationResponse": {
+            "type": "object",
+            "properties": {
+                "errors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "valid": {
+                    "type": "boolean"
+                },
+                "warnings": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

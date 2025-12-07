@@ -1,0 +1,14 @@
+backend/
+├── go.mod
+├── go.sum
+├── cmd/
+│   └── server/
+│       └── main.go           # Entry Point
+└── internal/
+    ├── api/
+    │   └── handlers.go       # API Endpoints
+    ├── compliance/
+    │   ├── engine.go         # Main Validation Logic
+    │   └── rules.go          # Specific Appendix B Rules
+    └── models/
+        └── creative.go       # Data Structures

@@ -1,0 +1,93 @@
+basePath: /
+definitions:
+  models.CreativeRequest:
+    properties:
+      category:
+        description: '"Alcohol", "Standard"'
+        type: string
+      elements:
+        items:
+          $ref: '#/definitions/models.Element'
+        type: array
+      format:
+        description: '"Story_9x16" or "Banner_Standard"'
+        type: string
+    type: object
+  models.Element:
+    properties:
+      content:
+        description: Actual text or image URL
+        type: string
+      height:
+        type: integer
+      id:
+        type: string
+      type:
+        description: '"Logo", "Text", "Packshot", "Drinkaware"'
+        type: string
+      width:
+        type: integer
+      x:
+        type: integer
+      "y":
+        type: integer
+    type: object
+  models.ValidationResponse:
+    properties:
+      errors:
+        items:
+          type: string
+        type: array
+      valid:
+        type: boolean
+      warnings:
+        items:
+          type: string
+        type: array
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: AI-Driven Creative Compliance Engine implementing Tesco Guidelines.
+  title: Retail Media Compliance API
+  version: "1.0"
+paths:
+  /api/validate:
+    post:
+      consumes:
+      - application/json
+      description: Checks creative elements against Appendix B rules (Text, Alcohol,
+        Safe Zones)
+      parameters:
+      - description: Creative JSON Data
+        in: body
+        name: creative
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreativeRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ValidationResponse'
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+      summary: Validate Creative Compliance
+      tags:
+      - compliance
+  /health:
+    get:
+      description: Verifies that the API server is running
+      responses:
+        "200":
+          description: Backend is running
+          schema:
+            type: string
+      summary: Backend Health Check
+      tags:
+      - system
+swagger: "2.0"

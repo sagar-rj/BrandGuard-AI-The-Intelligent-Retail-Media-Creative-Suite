@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+
+
+/* Custom Canvas styles */
+body {
+  height: 100vh;
+  margin: 0;
+}

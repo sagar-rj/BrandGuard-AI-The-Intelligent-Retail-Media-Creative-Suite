@@ -1,0 +1,72 @@
+# =========================
+# GLOBAL / IDE SETTINGS
+# =========================
+.DS_Store
+.vscode/
+.idea/
+*.log
+*.tmp
+
+# =========================
+# FRONTEND (React/Vite)
+# =========================
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/package-lock.json # Optional: Keep if you want to lock versions, remove if using yarn.lock
+frontend/.eslintcache
+
+# =========================
+# BACKEND (Golang)
+# =========================
+# Binaries and executables
+backend/*.exe
+backend/*.exe~
+backend/*.dll
+backend/*.so
+backend/*.dylib
+backend/main
+
+# Vendor directory (if you are not committing dependencies)
+backend/vendor/
+
+# Local configuration
+backend/.env
+
+# Local Storage (Packshots & Backgrounds)
+# We ignore the actual images but keep the folder structure
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Swagger Docs (Optional: Comment out if you WANT to commit generated docs)
+# backend/docs/
+
+# =========================
+# AI SERVICE (Python)
+# =========================
+# Virtual Environment
+ai-service/venv/
+ai-service/env/
+
+# Byte-compiled / optimized / DLL files
+ai-service/__pycache__/
+*.py[cod]
+*$py.class
+
+# Local configuration
+ai-service/.env
+
+# Distribution / Packaging
+ai-service/build/
+ai-service/dist/
+ai-service/*.egg-info/
+
+# Unit Test Cache
+ai-service/.pytest_cache/
+ai-service/.coverage

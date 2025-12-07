@@ -1,0 +1,26 @@
+frontend/
+├── index.html                   # HTML Entry point
+├── package.json                 # Dependencies
+├── tailwind.config.js           # Styling configuration
+├── vite.config.js               # Build configuration
+└── src/
+    ├── main.jsx                 # React Entry point
+    ├── App.jsx                  # Main Application Wrapper
+    ├── api/
+    │   └── client.js            # Axios setup for Python AI Service
+    ├── assets/                  # Static images (logos, placeholder icons)
+    ├── components/
+    │   ├── Canvas/              # The "Builder" area
+    │   │   ├── CreativeCanvas.jsx   # Main drag-and-drop workspace
+    │   │   ├── SafeZoneOverlay.jsx  # Visual red zones (200px/250px)
+    │   │   └── ElementLayer.jsx     # Individual draggable items (images, text)
+    │   ├── Controls/            # Sidebar tools
+    │   │   ├── ImageUploader.jsx    # File input component
+    │   │   └── FormatSelector.jsx   # Toggle between "Story 9:16" and "Banner"
+    │   └── Feedback/            # AI Results
+    │       ├── CompliancePanel.jsx  # Shows "Pass/Fail" and warnings
+    │       └── AutoFixButton.jsx    # Trigger for GenAI rewrite
+    ├── hooks/
+    │   └── useCompliance.js     # Custom hook to manage analysis state
+    └── styles/
+        └── index.css            # Global styles (Tailwind imports)

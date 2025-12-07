@@ -1,0 +1,9 @@
+ai-service/
+├── requirements.txt
+├── main.py                  # API Entry point
+├── config.py                # Configuration (API Keys)
+├── services/
+│   ├── vision.py            # OCR & Person Detection (OpenCV/Tesseract)
+│   └── llm.py               # GenAI Logic (OpenAI/Gemini Wrapper)
+└── utils/
+    └── prompts.py           # Strict Compliance Prompts
