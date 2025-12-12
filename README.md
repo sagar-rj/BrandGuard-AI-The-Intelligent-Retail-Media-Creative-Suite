@@ -10,7 +10,7 @@
       * **Hard-Fail Enforcement:** Automatically blocks creatives that violate strict rules (e.g., prohibited "Money-back guarantees" or "Sustainability claims").
       * **Mandatory Element Checks:** Enforces presence and minimum size (12px) of elements like the "Drinkaware" lock-up.
   * **🎨 AI-Powered Visual Builder (React.js)**
-      * **Safe Zone Visualization:** Overlays dynamic "Red Zones" (200px top / 250px bottom) to strictly enforce Social Story (9:16) constraints. [cite: 31, 97]
+      * **Safe Zone Visualization:** Overlays dynamic "Red Zones" (200px top / 250px bottom) to strictly enforce Social Story (9:16) constraints.
       * **Drag-and-Drop:** Intuitive canvas for composing packshots, text, and logos.
   * **🧠 GenAI & Vision Services (Python)**
       * **Auto-Fix Copy:** Uses OpenAI (LLM) to rewrite "risky" text (e.g., "Win a holiday") into neutral, compliant copy. 
